@@ -1,12 +1,12 @@
 import streamlit as st
-from nltk.sentiment import SentimentIntensityAnalyzer
+import nltk
 
 # Download the VADER lexicon for sentiment analysis
-import nltk
 nltk.download('vader_lexicon')
 
 # Function for sentiment analysis
 def analyze_sentiment(text):
+    from nltk.sentiment import SentimentIntensityAnalyzer
     sid = SentimentIntensityAnalyzer()
     sentiment_scores = sid.polarity_scores(text)
     sentiment_score = sentiment_scores['compound']
